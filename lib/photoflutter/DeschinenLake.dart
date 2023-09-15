@@ -15,13 +15,15 @@ class MyApp extends StatelessWidget{
       child: Row(
         children: [
           Expanded(
+            /*1*/
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                /*2*/
                 Container(
                   padding: const EdgeInsets.only(bottom: 8),
                   child: const Text(
-                    'Deschinen Lake Campground',
+                    'Oeschinen Lake Campground',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
@@ -36,11 +38,12 @@ class MyApp extends StatelessWidget{
               ],
             ),
           ),
+          /*3*/
           Icon(
-            Icons.favorite,
+            Icons.star,
             color: Colors.red[500],
           ),
-          const Text('35'),
+          const Text('41'),
         ],
       ),
     );
@@ -60,12 +63,12 @@ class MyApp extends StatelessWidget{
     Widget textSection = Container(
       padding: const EdgeInsets.all(32),
       child: const Text(
-        'Lake Deschinen lies at the foot of the Bluemlisalp in the Bernnese'
-            'Alps.\nSituated 1,578 meters above sea level, it is one of the'
-            'larger Alpine Lakes.\nA gondola ride from Kandersteg, followed by a'
+            'Lake Oeschinen lies at the foot of the Bluemlisalp in the Bernese'
+            'Alps. Situated 1,578 meters above sea level, it is one of the'
+            'larger Alpine Lakes. A gondola ride from Kandersteg, followed by a'
             'half-hour walk through pastures and pine forest, leads you to the'
-            'lake, which warms to 20 degrees Celsius in the summer.\nActivities'
-            'enjoyed here include rowing, and riding the summer to boggan run,',
+            'lake, which warms to 20 degrees Celsius in the summer. Activities '
+            'enjoyed here include rowing, and riding the summer toboggan run,',
         softWrap: true,
       ),
     );
@@ -87,7 +90,6 @@ class MyApp extends StatelessWidget{
             titleSection,
             buttonSection,
             textSection,
-
           ],
         ),
       ),
