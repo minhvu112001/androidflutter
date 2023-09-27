@@ -62,7 +62,7 @@ class MyApp extends StatelessWidget{
       alignment: const Alignment(0.6,0.6),
       children:[
         const CircleAvatar(
-          backgroundImage: AssetImage('images/pic.jpg'),
+          backgroundImage: AssetImage('images/pic0.jpg'),
           radius: 100,
         ),
         Container(
