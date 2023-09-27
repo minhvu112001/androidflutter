@@ -1,69 +1,79 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-
 void main() {
-  debugPaintSizeEnabled = true;
-  runApp(const MyApp());
+  runApp(AppMenu());
 }
-class MyApp extends StatelessWidget{
-  const MyApp ({super.key});
 
+class AppMenu extends StatelessWidget {
+  const AppMenu({super.key});
 
   static const showGrid = true;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Cat Cafe Shop',
+      title: 'Menu coffee',
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Cat Cafe Shop'),
-        ),
-        body: Center(child: showGrid ? _buildGrid() : _buildList()),
-      ),
+          appBar: AppBar(title: Text('appbar')),
+          body: Center(
+              child: showGrid ? _buildGridCoffee() : _buildListCoffee())),
     );
   }
-  Widget _buildGrid() => GridView.extent(
+
+  Widget _buildGridCoffee() {
+    return GridView.extent(
       maxCrossAxisExtent: 150,
       padding: const EdgeInsets.all(4),
       mainAxisSpacing: 4,
       crossAxisSpacing: 4,
-      children: _buildGridTileList(30));
-  List<Container> _buildGridTileList(int count) => List.generate(
-      count, (i) => Container(child: Image.asset('images/pic$i.jpg')));
+      children: _buildGridTileListCoffee(18),
+    );
+  }
 
-  Widget _buildList(){
+  List<Container> _buildGridTileListCoffee(int count) {
+    return List.generate(
+        count,
+            (index) => Container(
+          child: Image.asset('images/Menu/drink-$index.jpg'),
+        ));
+  }
+
+  Widget _buildListCoffee() {
     return ListView(
       children: [
-        _tile('CineArts at the Empire', '85 W Portal Ave', Icons.theaters),
-        _tile('The Castro Theater','429 Castro St',Icons.theaters),
-        _tile('Alamo Drafthouse Cinema', '2550 Mission St', Icons.theaters),
-        _tile('Roxie theater','3117 16th St', Icons.theaters),
-        _tile('United Artists Stonestown Twin','501 Buckingham Way', Icons.theaters),
-        _tile('AMC Metreon 16','135 4th St #3000',Icons.theaters),
-        const Divider(),
-        _tile('K\'s Kitchen','757 Monterey Blvd',Icons.restaurant),
-        _tile('Emmy\'s Restaurant', '272 Claremont Blvd', Icons.restaurant),
-        _tile('La Ciccia', '291 30th St', Icons.restaurant),
-
+        _tile('Cafe Nau', '25.000 Vnd',
+            IconData(0xf709, fontFamily: 'MaterialIcons')),
+        _tile('Capuchino', '35.000 Vnd',
+            IconData(0xf709, fontFamily: 'MaterialIcons')),
+        _tile('Sinh To Xoai', '40.000 Vnd',
+            IconData(0xf709, fontFamily: 'MaterialIcons')),
+        _tile('Sinh To Dua Hau', '40.000 Vnd',
+            IconData(0xf709, fontFamily: 'MaterialIcons')),
+        _tile('Nuoc Ep Tao', '45.000 Vnd',
+            IconData(0xf709, fontFamily: 'MaterialIcons')),
+        _tile('Nuoc Ep Dua', '45.000 Vnd',
+            IconData(0xf709, fontFamily: 'MaterialIcons')),
+        _tile('Sua Chua Danh Da', '35.000 Vnd',
+            IconData(0xf709, fontFamily: 'MaterialIcons')),
       ],
     );
   }
 
-  ListTile _tile(String title, String subtitle, IconData icon){
+  ListTile _tile(String title, String price, IconData icon) {
     return ListTile(
-      title: Text(title,
-          style: const TextStyle(
-            fontWeight: FontWeight.w500,
-            fontSize: 20,
-          )),
-      subtitle: Text(subtitle),
+      title: Text(
+        title,
+        style: const TextStyle(
+          fontWeight: FontWeight.w500,
+          fontSize: 20,
+        ),
+      ),
+      subtitle: Text(price),
       leading: Icon(
         icon,
         color: Colors.blue[500],
       ),
     );
   }
-
 }
